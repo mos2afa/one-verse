@@ -3,9 +3,9 @@ using System.Windows.Forms;
 
 namespace quran
 {
-    public partial class Verse : Form
+    public partial class OneVerse : Form
     {
-        public Verse()
+        public OneVerse()
         {
             InitializeComponent();
         }
@@ -18,10 +18,9 @@ namespace quran
 
             FillcbSurahsNames();
 
-            ChangeSurah(Settings.CurrentSurahNumber);
-
             rtbVerse.SelectAll();
             rtbVerse.SelectionAlignment = HorizontalAlignment.Center;
+            btnLang.Text = Settings.Language.ToString();
 
             ShowVerse(Settings.CurrentSurahNumber,Settings.CurrentVerseNumber);
 
@@ -38,10 +37,15 @@ namespace quran
             Settings.CurrentSurahNumber = SurahNumber;
             Settings.CurrentVerseNumber = VerseNumber;
 
-            rtbVerse.Text = QuranManager.GetArabicVerse(Settings.CurrentSurahNumber, Settings.CurrentVerseNumber);
+            RefreshTextBox();
 
             lbVerseNumber.Text = Settings.CurrentVerseNumber.ToString();
             lbVerseNumber.Focus();
+        }
+
+        void RefreshTextBox()
+        {
+            rtbVerse.Text = QuranManager.GetVerse(Settings.CurrentSurahNumber, Settings.CurrentVerseNumber,Settings.Language);
         }
 
         private void btnNextVerse_Click(object sender, EventArgs e)
@@ -64,7 +68,12 @@ namespace quran
 
         private void FillcbSurahsNames()
         {
-            cbSurahsNames.Items.AddRange(QuranManager.ArabicSurahsNames().ToArray());
+            cbSurahsNames.Items.Clear();
+            cbSurahsNames.Items.AddRange(QuranManager.GetSurahsNames(Settings.Language).ToArray());
+
+            cbSurahsNames.RightToLeft = Settings.Language == enLanguage.ar ? RightToLeft.Yes : RightToLeft.No;
+
+            ChangeSurah(Settings.CurrentSurahNumber);
         }
 
         private void Form1_FormClosed(object sender, FormClosedEventArgs e)
@@ -96,22 +105,21 @@ namespace quran
             if (keyData == (Keys.Control | Keys.W))
                 Close();
 
-            if(cbSurahsNames.Focused)
-            {
-                if (keyData == Keys.Up)
-                    Settings.CurrentSurahNumber--;
-                else if (keyData == Keys.Down)
-                    Settings.CurrentSurahNumber++;
-
-                if (Settings.CurrentSurahNumber > 114)
-                    Settings.CurrentSurahNumber = 114;
-                else if(Settings.CurrentSurahNumber < 1)
-                    Settings.CurrentSurahNumber = 1;
-
-                ChangeSurah(Settings.CurrentSurahNumber);
-            }
-
             return true;
+        }
+
+        private void btnLang_Click(object sender, EventArgs e)
+        {
+            cbSurahsNames.SelectedIndexChanged -= cbSurahsNames_SelectedIndexChanged;// prevent returning to verse 1.
+
+            Settings.Language = Settings.Language == enLanguage.ar ? enLanguage.en : enLanguage.ar;
+            btnLang.Text = Settings.Language.ToString();
+
+            FillcbSurahsNames();
+
+            RefreshTextBox();
+
+            cbSurahsNames.SelectedIndexChanged += cbSurahsNames_SelectedIndexChanged;
         }
     }
 }

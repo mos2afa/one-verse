@@ -8,23 +8,25 @@ namespace quran
     {
         private static readonly string db_path = "Data Source=quran_database.sqlite";
 
-        public static string GetArabicVerse(int surahNumber,int verseNumber )
+        public static string GetVerse(int surahNumber,int verseNumber,enLanguage language = enLanguage.ar )
         {
 
-            string query = $"select text_ar from verses where" +
-                $" surah_number={surahNumber}" +
-                $" and number={verseNumber}";
+            string query = $"select text_{language} from verses where" +
+                $" surah_number=@surahNumber" +
+                $" and number=@verseNumber";
 
-            string ar_verse = "";
+            string verse = "";
 
             using (SQLiteConnection conn = new SQLiteConnection(db_path))
             using (SQLiteCommand cmd = new SQLiteCommand(query, conn) )
             {
+                cmd.Parameters.AddWithValue("@surahNumber", surahNumber);
+                cmd.Parameters.AddWithValue("@verseNumber", verseNumber);
+
                 try
                 {
-
                     conn.Open();
-                    ar_verse = cmd.ExecuteScalar().ToString();
+                    verse = cmd.ExecuteScalar().ToString();
                 }
                 catch
                 {
@@ -35,8 +37,9 @@ namespace quran
                     conn.Close();
                 }
             }
-            return ar_verse;
+            return verse;
         }
+
         public static int SurahVersesCount(int surahNumber)
         {
 
@@ -66,9 +69,9 @@ namespace quran
             return Count;
         }
 
-        public static List<string> ArabicSurahsNames()
+        public static List<string> GetSurahsNames(enLanguage language = enLanguage.ar)
         {
-            string query = $"select name_ar from surahs ";
+            string query = $"select name_{language} from surahs ";
 
             List<string> SurahNames = new List<string>();
 

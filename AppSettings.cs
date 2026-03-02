@@ -1,15 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Text.Json;
 using System.IO;
 
 namespace quran
 {
+    public enum enLanguage { ar , en}
+
     public class AppSettings
     {
+        public enLanguage Language { get; set; }
+
         public int CurrentSurahNumber { get; set; }
         public int CurrentVerseNumber { get; set; }
 
@@ -17,6 +19,7 @@ namespace quran
         {
             return new AppSettings
             {
+                Language = enLanguage.ar,
                 CurrentSurahNumber = 1,
                 CurrentVerseNumber = 1,
             };

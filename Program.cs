@@ -16,7 +16,7 @@ namespace quran
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Verse());
+            Application.Run(new OneVerse());
         }
     }
 }
