@@ -31,7 +31,6 @@
             this.rtbVerse = new System.Windows.Forms.RichTextBox();
             this.btnPrevVerse = new System.Windows.Forms.Button();
             this.btnNextVerse = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
             this.lbVerseNumber = new System.Windows.Forms.Label();
             this.cbSurahsNames = new System.Windows.Forms.ComboBox();
             this.btnLang = new System.Windows.Forms.Button();
@@ -57,7 +56,7 @@
             this.btnPrevVerse.FlatAppearance.BorderSize = 0;
             this.btnPrevVerse.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPrevVerse.ForeColor = System.Drawing.Color.Black;
-            this.btnPrevVerse.Location = new System.Drawing.Point(297, 426);
+            this.btnPrevVerse.Location = new System.Drawing.Point(308, 426);
             this.btnPrevVerse.Name = "btnPrevVerse";
             this.btnPrevVerse.Size = new System.Drawing.Size(82, 41);
             this.btnPrevVerse.TabIndex = 1;
@@ -71,7 +70,7 @@
             this.btnNextVerse.FlatAppearance.BorderSize = 0;
             this.btnNextVerse.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnNextVerse.ForeColor = System.Drawing.Color.Black;
-            this.btnNextVerse.Location = new System.Drawing.Point(384, 426);
+            this.btnNextVerse.Location = new System.Drawing.Point(395, 426);
             this.btnNextVerse.Name = "btnNextVerse";
             this.btnNextVerse.Size = new System.Drawing.Size(82, 41);
             this.btnNextVerse.TabIndex = 2;
@@ -80,25 +79,15 @@
             this.btnNextVerse.UseVisualStyleBackColor = true;
             this.btnNextVerse.Click += new System.EventHandler(this.btnNextVerse_Click);
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(35, 426);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(195, 36);
-            this.label1.TabIndex = 3;
-            this.label1.Text = "verse number";
-            // 
             // lbVerseNumber
             // 
-            this.lbVerseNumber.AutoSize = true;
-            this.lbVerseNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbVerseNumber.Location = new System.Drawing.Point(235, 426);
+            this.lbVerseNumber.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.lbVerseNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbVerseNumber.Location = new System.Drawing.Point(120, 427);
             this.lbVerseNumber.Name = "lbVerseNumber";
-            this.lbVerseNumber.Size = new System.Drawing.Size(32, 36);
+            this.lbVerseNumber.Size = new System.Drawing.Size(173, 41);
             this.lbVerseNumber.TabIndex = 4;
-            this.lbVerseNumber.Text = "0";
+            this.lbVerseNumber.Text = "1 / 7";
             // 
             // cbSurahsNames
             // 
@@ -138,7 +127,6 @@
             this.Controls.Add(this.btnLang);
             this.Controls.Add(this.cbSurahsNames);
             this.Controls.Add(this.lbVerseNumber);
-            this.Controls.Add(this.label1);
             this.Controls.Add(this.btnNextVerse);
             this.Controls.Add(this.btnPrevVerse);
             this.Controls.Add(this.rtbVerse);
@@ -151,7 +139,6 @@
             this.Load += new System.EventHandler(this.Form1_Load);
             this.Shown += new System.EventHandler(this.Form1_Shown);
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -160,7 +147,6 @@
         private System.Windows.Forms.RichTextBox rtbVerse;
         private System.Windows.Forms.Button btnPrevVerse;
         private System.Windows.Forms.Button btnNextVerse;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label lbVerseNumber;
         private System.Windows.Forms.ComboBox cbSurahsNames;
         private System.Windows.Forms.Button btnLang;

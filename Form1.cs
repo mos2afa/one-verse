@@ -39,7 +39,7 @@ namespace quran
 
             RefreshTextBox();
 
-            lbVerseNumber.Text = Settings.CurrentVerseNumber.ToString();
+            lbVerseNumber.Text = $"{Settings.CurrentVerseNumber} / {QuranManager.SurahVersesCount(Settings.CurrentSurahNumber)}";
             lbVerseNumber.Focus();
         }
 
