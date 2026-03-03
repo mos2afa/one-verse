@@ -7,6 +7,15 @@ One Verse is a simple desktop application that allows you to read the Quran one 
   <img src="https://github.com/user-attachments/assets/ce007e60-0c6e-48d7-91ed-d18943fc3188" width="45%" />
 </p>
 
+## 📥 Download & Run (Release)
+
+1. Go to the **[Releases](https://github.com/mos2afa/one-verse/releases/)** section of this repository.
+2. Download the latest release zip file.
+3. Extract the zip file to any folder on your computer.
+4. Open the folder and double-click on `one verse.exe` to run the application.
+
+> 💡 Tip: Keep the extracted folder in a safe location so the settings file (JSON) is preserved.
+
 ## ✨ Features
 
 - Display one verse at a time
@@ -31,6 +40,7 @@ When the application starts, it loads the last saved position automatically.
 ## 🎯 Goal
 
 The goal of this project is to provide a minimal and focused Quran reading experience — one verse at a time.
+
 
 ## 👤 Author
 
