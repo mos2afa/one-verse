@@ -28,18 +28,24 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.rtbVerse = new System.Windows.Forms.RichTextBox();
+            this.cms1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.showTafseerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.btnPrevVerse = new System.Windows.Forms.Button();
             this.btnNextVerse = new System.Windows.Forms.Button();
             this.lbVerseNumber = new System.Windows.Forms.Label();
             this.cbSurahsNames = new System.Windows.Forms.ComboBox();
             this.btnLang = new System.Windows.Forms.Button();
+            this.cms1.SuspendLayout();
             this.SuspendLayout();
             // 
             // rtbVerse
             // 
             this.rtbVerse.BackColor = System.Drawing.Color.Black;
             this.rtbVerse.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.rtbVerse.ContextMenuStrip = this.cms1;
+            this.rtbVerse.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.rtbVerse.Font = new System.Drawing.Font("Microsoft Sans Serif", 31.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rtbVerse.ForeColor = System.Drawing.Color.White;
             this.rtbVerse.Location = new System.Drawing.Point(12, 24);
@@ -50,6 +56,23 @@
             this.rtbVerse.TabIndex = 0;
             this.rtbVerse.TabStop = false;
             this.rtbVerse.Text = "";
+            this.rtbVerse.MouseDown += new System.Windows.Forms.MouseEventHandler(this.rtbVerse_MouseDown);
+            // 
+            // cms1
+            // 
+            this.cms1.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.cms1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.showTafseerToolStripMenuItem});
+            this.cms1.Name = "cms1";
+            this.cms1.Size = new System.Drawing.Size(214, 40);
+            // 
+            // showTafseerToolStripMenuItem
+            // 
+            this.showTafseerToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.showTafseerToolStripMenuItem.Name = "showTafseerToolStripMenuItem";
+            this.showTafseerToolStripMenuItem.Size = new System.Drawing.Size(213, 36);
+            this.showTafseerToolStripMenuItem.Text = "Show tafseer";
+            this.showTafseerToolStripMenuItem.Click += new System.EventHandler(this.showTafseerToolStripMenuItem_Click);
             // 
             // btnPrevVerse
             // 
@@ -138,6 +161,7 @@
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form1_FormClosed);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.Shown += new System.EventHandler(this.Form1_Shown);
+            this.cms1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -150,6 +174,8 @@
         private System.Windows.Forms.Label lbVerseNumber;
         private System.Windows.Forms.ComboBox cbSurahsNames;
         private System.Windows.Forms.Button btnLang;
+        private System.Windows.Forms.ContextMenuStrip cms1;
+        private System.Windows.Forms.ToolStripMenuItem showTafseerToolStripMenuItem;
     }
 }
 

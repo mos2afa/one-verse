@@ -121,5 +121,21 @@ namespace quran
 
             cbSurahsNames.SelectedIndexChanged += cbSurahsNames_SelectedIndexChanged;
         }
+
+        private void showTafseerToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            string Tafseer = QuranManager.GetArabicTafseer(Settings.CurrentSurahNumber, Settings.CurrentVerseNumber)+"\n";
+
+            string SurahName = QuranManager.GetArabicSurahsName(Settings.CurrentSurahNumber);
+
+            frmTafseer frmTafseer = new frmTafseer(SurahName, Settings.CurrentVerseNumber, Tafseer); ;
+            frmTafseer.ShowDialog();
+        }
+
+        private void rtbVerse_MouseDown(object sender, MouseEventArgs e)
+        {
+            e = null;
+            this.ActiveControl = lbVerseNumber;
+        }
     }
 }
